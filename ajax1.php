@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style>	
-	
+	<style>
+
 	.navbar-inverse{
 		margin-bottom: 0 !important;
 	}
@@ -15,7 +15,6 @@
 
      }
      img{
-        
      	width: 300px;
      	height: 200px !important;
      }
@@ -37,7 +36,8 @@
    <div class="container-fluid">
    	<div class="row">
     <?php
-     include '1.php';  
+     include '1.php';
+		 include '2.php';
 
 
     		for($i=0;$i<count($arr);$i++){
@@ -48,18 +48,18 @@
       <img src="'.$arr[$i]["src"].'" alt="...">
        <h3 style="text-align:center">'.$arr[$i]["name"].'</h3>
       <div class="caption">
-        <p><a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p>
+        <p>    <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-primary" role="button">加入购物车</a>  <a href="./2.php?name='.$arr[$i]["name"].'"	name="hero" class="btn btn-primary" role="button">查看详情</a> </p>
       </div>
     </div>
- 
+
 </div>';
- 	}   
+ 	}
 
     ?>
 </div>
   </div>
  </div>
 
-	
+
 </body>
 </html>
