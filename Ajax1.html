@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+  img{
+    width: 300px;
+    height: 200px;
+  }
+    body{
+      	background: #87CEFF;
+    }
+ul{
+  list-style: none;
+}
+  </style>
+</head>
+<body>
+  <h2>不刷新页面刷新数据------AJAX</h2>
+  <input type="text" id="inp1"/>
+  <button id="btn1">无刷新</button>
+  <ul id="ul1"></ul>
+</body>
+
+</html>
+<script type="text/javascript">
+  var oul=document.getElementById('ul1');
+  btn1.onclick=function(){
+    //增
+    var oli=document.createElement('li');
+    var ip=document.getElementById('inp1')
+    var odiv=document.createElement('div');
+    var xhr=new XMLHttpRequest();//创建Ajax对象
+  xhr.onreadystatechange=function(){
+    if (xhr.readyState==2) {
+      //alert("q");
+    }
+    if (xhr.readyState==4) {
+      if (xhr.status==200) {
+//服务器返回数据成功
+        otext=xhr.responseText+'<br><a class="a1" href="javascript:;">删除</a>';
+        oli.innerHTML=otext;
+        var ali=document.getElementsByTagName('li');
+      oul.insertBefore(oli,ali[0]);
+      var oa=document.getElementsByTagName('a');
+
+      for (var i = 0; i < oa.length; i++) {
+//删
+        oa[i].onclick=function(){
+          console.log(oa[i]);
+         oul.removeChild(this.parentNode);
+        }
+      }
+      }
+    }
+  }
+  xhr.open('get','2.php?name='+ip.value);
+  xhr.send();
+}
+
+// var ali=document.getElementsByTagName('li')[0];
+// var oa=getClassName(ali,"a1");
+//
+// // console.log(oa);
+function getClassName(oParent,cls)
+{
+	var arr=[];
+	var obj=oParent.getElementsByTagName('*');
+	for (var i = 0; i < obj.length; i++) {
+		if(obj[i].className==cls)
+		{
+	arr.push(obj[i])
+		}
+	}
+	return arr;
+}
+
+</script>
